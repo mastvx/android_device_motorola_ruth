@@ -1,3 +1,4 @@
+app/Usb.apk
 bin/akmd2
 bin/ap_gain_france.bin
 bin/ap_gain.bin
@@ -25,7 +26,7 @@ bin/smc_pa_ctrl
 bin/smoduled
 bin/tcmd
 bin/tcmdhelp
-#bin/usbd
+bin/usbd
 bin/wmdrmapp
 bin/wtg
 etc/contextawareness/algorithm.xml
@@ -159,10 +160,6 @@ lib/libpppd_plugin.so
 lib/libprovlib.so
 lib/libpvr2d.so
 lib/libpvrANDROID_WSEGL.so
-lib/libril-moto-umts-1.so
-lib/libreference-cdma-sms.so
-lib/libreference-ril.so
-lib/libril.so
 lib/libscalado.so
 lib/libsmapi.so
 lib/libsorenson.so
@@ -189,3 +186,18 @@ usr/keylayout/ruthp1-keypad.kl
 xbin/drm1_func_test
 xbin/pppd
 xbin/ssmgrd
+
+#--ril
+lib/libril-moto-umts-1.so
+lib/libreference-cdma-sms.so
+lib/libreference-ril.so
+lib/libril.so
+#--
+
+#--wifi--flipout's libril.so use libwpa_client.so
+bin/wlan_loader
+bin/wlan_cu
+bin/wpa_supplicant
+lib/libwpa_client.so
+etc/wifi/wpa_supplicant.conf
+#--

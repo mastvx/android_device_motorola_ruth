@@ -21,12 +21,11 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PREBUILT}/bin/mot_boot_mode:system/bin/mot_boot_mode \
 	${DEVICE_PREBUILT}/bin/fixDelSystem.sh:system/bin/fixDelSystem.sh \
 	${DEVICE_PREBUILT}/bin/install2ndInit.sh:system/bin/install2ndInit.sh \
-	${DEVICE_PREBUILT}//etc/cameraCalFileDef5M.bin:system/etc/cameraCalFileDef5M.bin \
+	${DEVICE_PREBUILT}/etc/wifi/tiwlan.ini:etc/wifi/tiwlan.ini \
+	${DEVICE_PREBUILT}/etc/cameraCalFileDef5M.bin:system/etc/cameraCalFileDef5M.bin \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
-	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin \
-	${DEVICE_PATH}/mb508/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-	${DEVICE_PATH}/prebuilt/etc/wifi/tiwlan.ini:system/etc/wifi/tiwlan.ini \
+	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin
 
 # copy all of our kernel modules under the "modules" directory to system/lib/modules
 PRODUCT_COPY_FILES += $(shell test -d device/motorola/ruth && \

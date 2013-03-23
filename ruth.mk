@@ -89,7 +89,6 @@ PRODUCT_PACKAGES += \
 	charge_only_mode \
 	Usb \
 	su \
-	battdsock \
 
 # Live wallpaper packages
 PRODUCT_PACKAGES += \

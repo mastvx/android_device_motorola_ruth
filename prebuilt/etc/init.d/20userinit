@@ -1,8 +1,5 @@
 #!/system/bin/sh
-mount -o remount,rw / /
-rm -rf /sdcard           
-ln -s /mnt/sdcard /sdcard                                                       
-mount -o remount,ro / /                                                         
+                                                       
 echo "1536,2048,4096,8192,16384,24576" > /sys/module/lowmemorykiller/parameters/
 insmod /system/lib/modules/overclock.ko omap2_clk_init_cpufreq_table_addr=0xc005
 echo 1024 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
