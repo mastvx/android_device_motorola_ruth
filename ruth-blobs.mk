@@ -22,9 +22,14 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PREBUILT}/bin/fixDelSystem.sh:system/bin/fixDelSystem.sh \
 	${DEVICE_PREBUILT}/bin/install2ndInit.sh:system/bin/install2ndInit.sh \
 	${DEVICE_PREBUILT}/etc/wifi/tiwlan.ini:etc/wifi/tiwlan.ini \
+	${DEVICE_PREBUILT}/etc/init.d/20userinit:etc/init.d/20userinit \
 	${DEVICE_PREBUILT}/etc/cameraCalFileDef5M.bin:system/etc/cameraCalFileDef5M.bin \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
+	${DEVICE_PATH}/mb508/lib/libgki.so:system/lib/libgki.so \
+	${DEVICE_PATH}/mb508/bin/gkilogd:system/lib/gkilogd \
+	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/lib/gki_pd_notifier \
+	${DEVICE_PATH}/mb508/bin/gkisystem:system/lib/gkisystem \
 	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin
 
 # copy all of our kernel modules under the "modules" directory to system/lib/modules

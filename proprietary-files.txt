@@ -12,8 +12,6 @@ bin/dund
 bin/dspexec
 bin/ecckeyd
 bin/firewall.sh
-bin/gkilogd
-bin/gkisystem
 bin/location
 bin/modemlog
 bin/motobox
@@ -116,7 +114,6 @@ lib/libdmengine.so
 lib/libdmjavaplugin.so
 lib/libflashsnddec.so
 lib/libgb_im.so
-lib/libgki.so
 lib/libglslcompiler.so
 lib/libgps.so
 lib/libgtalk_jni.so
