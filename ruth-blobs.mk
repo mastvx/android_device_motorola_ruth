@@ -27,6 +27,9 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libgki.so:system/lib/libgki.so \
+	${DEVICE_PATH}/mb508/lib/libgps.so:system/lib/libgps.so \
+	${DEVICE_PATH}/mb508/lib/hw/gps.sage.so:system/lib/hw/gps.ruth.so \
+	${DEVICE_PATH}/mb508/lib/hw/gps.goldfish.so:system/lib/hw/gps.goldfish.so \
 	${DEVICE_PATH}/mb508/bin/gkilogd:system/bin/gkilogd \
 	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/bin/gki_pd_notifier \
 	${DEVICE_PATH}/mb508/bin/gkisystem:system/bin/gkisystem \
