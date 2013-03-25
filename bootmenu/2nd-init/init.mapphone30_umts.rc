@@ -12,6 +12,8 @@ on post-fs
     chmod 666 /dev/ttyGS0
     symlink /dev/ttyGS0 /dev/acm0
 
+    mkdir /dev/netmux 0770 root radio
+
 # Create mountpoints and mount tmpfs
     mkdir /pds 0775 system system
     mkdir /tmp 0777 system system
@@ -254,7 +256,7 @@ on boot
     setprop init.svc.iprenew_tiwlan0 ""
     setprop wlan.driver.status "ok"
     setprop net.dns1 ""
-    setprop net.dns2 ""
+    setprop net.dns2 "8.8.8.8"
 
     setprop dns.tiwlan0.dns1 ""
     setprop dns.tiwlan0.dns2 ""
