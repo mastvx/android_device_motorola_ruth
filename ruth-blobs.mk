@@ -27,9 +27,9 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libgki.so:system/lib/libgki.so \
-	${DEVICE_PATH}/mb508/bin/gkilogd:system/lib/gkilogd \
-	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/lib/gki_pd_notifier \
-	${DEVICE_PATH}/mb508/bin/gkisystem:system/lib/gkisystem \
+	${DEVICE_PATH}/mb508/bin/gkilogd:system/bin/gkilogd \
+	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/bin/gki_pd_notifier \
+	${DEVICE_PATH}/mb508/bin/gkisystem:system/bin/gkisystem \
 	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin
 
 # copy all of our kernel modules under the "modules" directory to system/lib/modules
