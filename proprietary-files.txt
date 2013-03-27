@@ -1,4 +1,4 @@
-app/Usb.apk
+#app/Usb.apk
 bin/akmd2
 bin/ap_gain_france.bin
 bin/ap_gain.bin
