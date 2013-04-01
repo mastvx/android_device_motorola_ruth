@@ -1,4 +1,4 @@
-#app/Usb.apk
+app/Usb.apk
 bin/akmd2
 bin/ap_gain_france.bin
 bin/ap_gain.bin
@@ -22,7 +22,6 @@ bin/rild_tcmd
 bin/secclkd
 bin/smc_pa_ctrl
 bin/smoduled
-bin/tcmd
 bin/tcmdhelp
 bin/usbd
 bin/wmdrmapp
@@ -106,7 +105,6 @@ lib/egl/libGLESv2_POWERVR_SGX530_121.so
 lib/hw/gralloc.default.so
 lib/hw/gralloc.omap3.so
 lib/hw/gestures.ruth.so
-lib/libaudio.so
 lib/libbattd.so
 lib/libcaps.so
 lib/libcryptoki.so

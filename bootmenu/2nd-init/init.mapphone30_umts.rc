@@ -1,7 +1,7 @@
 on post-fs
 
 # Backward compatibility
-
+    symlink /dev /dev/netmux
     mount rootfs rootfs / rw remount  
     
     mkdir /cdrom 0770 system system
@@ -11,131 +11,6 @@ on post-fs
     chmod 666 /dev/ttyGS0
     symlink /dev/ttyGS0 /dev/acm0
 
-    mkdir /dev/netmux 0770 root radio
-
-	exec /system/xbin/mknod /dev/netmux/audio c 241 22
-	chmod 660 /dev/netmux/audio
-	chown root audio /dev/netmux/audio
-	
-	exec /system/xbin/mknod /dev/netmux/dlog_ctrl c 241 38
-	chmod 777 /dev/netmux/dlog_ctrl
-	chown radio radio /dev/netmux/dlog_ctrl
-	
-	exec /system/xbin/mknod /dev/netmux/efem c 241 29
-	chmod 777 /dev/netmux/efem
-	chown root radio /dev/netmux/efem
-	
-	exec /system/xbin/mknod /dev/netmux/gps c 241 26
-	chmod 770 /dev/netmux/gps
-	chown root radio /dev/netmux/gps
-	
-	exec /system/xbin/mknod /dev/netmux/mm_com_audio_dc c 241 12
-	chmod 600 /dev/netmux/mm_com_audio_dc
-	chown root root /dev/netmux/mm_com_audio_dc
-	
-	exec /system/xbin/mknod /dev/netmux/mm_com_audio_en c 241 13
-	chmod 600 /dev/netmux/mm_com_audio_en
-	chown root root /dev/netmux/mm_com_audio_en
-	
-	exec /system/xbin/mknod /dev/netmux/muxtest_direct1 c 241 39
-	chmod 600 /dev/netmux/muxtest_direct1
-	chown root root /dev/netmux/muxtest_direct1
-	
-	exec /system/xbin/mknod /dev/netmux/muxtest_direct2 c 241 40
-	chmod 600 /dev/netmux/muxtest_direct2
-	chown root root /dev/netmux/muxtest_direct2
-	
-	exec /system/xbin/mknod /dev/netmux/netmon c 241 30
-	chmod 660 /dev/netmux/netmon
-	chown root radio /dev/netmux/netmon
-	
-	exec /system/xbin/mknod /dev/netmux/nvm_proxy c 241 23
-	chmod 660 /dev/netmux/nvm_proxy
-	chown root radio /dev/netmux/nvm_proxy
-	
-	exec /system/xbin/mknod /dev/netmux/opprof c 241 31
-	chmod 660 /dev/netmux/opprof
-	chown root radio /dev/netmux/opprof
-	
-	exec /system/xbin/mknod /dev/netmux/power c 241 25
-	chmod 777 /dev/netmux/power
-	chown root root /dev/netmux/power
-	
-	exec /system/xbin/mknod /dev/netmux/psc c 241 21
-	chmod 600 /dev/netmux/psc
-	chown root root /dev/netmux/psc
-	
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi5 c 241 15
-	chmod 660 /dev/netmux/psd_nsapi5
-	chown root radio /dev/netmux/psd_nsapi5
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi6 c 241 16
-	chmod 660 /dev/netmux/psd_nsapi6
-	chown root radio /dev/netmux/psd_nsapi6
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi7 c 241 17
-	chmod 660 /dev/netmux/psd_nsapi7
-	chown root radio /dev/netmux/psd_nsapi7
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi8 c 241 18
-	chmod 660 /dev/netmux/psd_nsapi8
-	chown root radio /dev/netmux/psd_nsapi8
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi9 c 241 19
-	chmod 660 /dev/netmux/psd_nsapi9
-	chown root radio /dev/netmux/psd_nsapi9
-	exec /system/xbin/mknod /dev/netmux/psd_nsapi10 c 241 20
-	chmod 660 /dev/netmux/psd_nsapi10
-	chown root radio /dev/netmux/psd_nsapi10
-	
-	exec /system/xbin/mknod /dev/netmux/sim c 243 0
-	chmod 660 /dev/netmux/sim
-	chown root radio /dev/netmux/sim
-	
-	exec /system/xbin/mknod /dev/netmux/sim_proxy c 241 24
-	chmod 660 /dev/netmux/sim_proxy
-	chown root radio /dev/netmux/sim_proxy
-	
-	exec /system/xbin/mknod /dev/netmux/subsidy_lock c 241 28
-	chmod 660 /dev/netmux/subsidy_lock
-	chown root radio /dev/netmux/subsidy_lock
-	
-	exec /system/xbin/mknod /dev/netmux/telephony c 241 11
-	chmod 660 /dev/netmux/telephony
-	chown root radio /dev/netmux/telephony
-	
-	exec /system/xbin/mknod /dev/netmux/test_cmd c 241 27
-	chmod 660 /dev/netmux/test_cmd
-	chown root radio /dev/netmux/test_cmd
-	
-	exec /system/xbin/mknod /dev/netmux/uma_urlc c 241 32
-	chmod 660 /dev/netmux/uma_urlc
-	chown root radio /dev/netmux/uma_urlc
-	
-	exec /system/xbin/mknod /dev/netmux/wakeup_timer c 10 60
-	chmod 660 /dev/netmux/wakeup_timer
-	chown root radio /dev/netmux/wakeup_timer
-	
-	exec /system/xbin/mknod /dev/netmux/udi_ctrl c 241 9
-	chmod 600 /dev/netmux/udi_ctrl
-	chown root root /dev/netmux/udi_ctrl
-	
-	exec /system/xbin/mknod /dev/netmux/udi_data c 241 10
-	chmod 600 /dev/netmux/udi_data
-	chown root root /dev/netmux/data
-	
-	exec /system/xbin/mknod /dev/netmux/udi_ip c 241 34
-	chmod 600 /dev/netmux/udi_ip
-	chown root root /dev/netmux/udi_ip
-	
-	exec /system/xbin/mknod /dev/netmux/udi_ptp c 241 14
-	chmod 600 /dev/netmux/udi_ptp
-	chown root root /dev/netmux/udi_ptp
-	
-	exec /system/xbin/mknod /dev/netmux/uma_rrc c 241 33
-	chmod 600 /dev/netmux/uma_rrc
-	chown root root /dev/netmux/uma_rrc
-	
-	exec /system/xbin/mknod /dev/netmux/uma_urlc c 241 32
-	chmod 660 /dev/netmux/uma_urlc
-	chown root radio /dev/netmux/uma_urlc
-	
 	exec /system/xbin/mknod /dev/dsp c 14 3
 	chmod 660 /dev/dsp
 	chown system audio /dev/dsp

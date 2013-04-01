@@ -34,6 +34,7 @@ loglevel 3
     mkdir /mnt 0775 root system
     mkdir /sdcard 0000 system system
 
+
 # Create cgroup mount point for cpu accounting
     mkdir /acct
     mount cgroup none /acct cpuacct
@@ -65,6 +66,7 @@ loglevel 3
     mount tmpfs tmpfs /mnt/obb mode=0755,gid=1000
 
     mkdir /sd-ext 0771 system system
+    symlink /sdcard /mnt/sdcard
 
     write /proc/sys/kernel/panic_on_oops 1
     write /proc/sys/kernel/hung_task_timeout_secs 0
