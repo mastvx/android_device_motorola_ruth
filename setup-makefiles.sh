@@ -24,7 +24,6 @@ MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 
 # Prebuilt libraries that are needed to build open-source libraries
 PRODUCT_COPY_FILES := \\
-    $OUTDIR/proprietary/lib/libaudio.so:obj/lib/libaudio.so \\
     $OUTDIR/proprietary/lib/libril-moto-umts-1.so:obj/lib/libril_rds.so \\
     $OUTDIR/proprietary/lib/libgps.so:obj/lib/libgps.so \\
 

@@ -2,6 +2,12 @@ on post-fs
 
 # Backward compatibility
     symlink /dev /dev/netmux
+
+# prepare generic keypad name
+    mount yaffs2 mtd@system /system rw remount
+    exec /init_prep_keypad.sh
+    mount yaffs2 mtd@system /system ro remount
+
     mount rootfs rootfs / rw remount  
     
     mkdir /cdrom 0770 system system
@@ -359,9 +365,12 @@ service atvc /system/bin/dbvc_atvc_property_set
 service telnet /system/xbin/telnetd
     class pre-zygote_services
     oneshot
+
 service usbd /system/bin/usbd
     class pre-zygote_services
-    
+    user root
+    socket usbd stream 0666 root system
+   
 service nvm-daemon /system/usr/bin/nvm_daemon
     class pre-zygote_services
     user radio

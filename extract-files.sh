@@ -10,7 +10,9 @@ for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
     fi
-    adb pull /system/$FILE $BASE/$FILE
+#    adb pull /system/$FILE $BASE/$FILE
+cp ~/MyDownloads/MB511TW/smg/CG39/$FILE $BASE/$FILE
+
 done
 
 ./setup-makefiles.sh

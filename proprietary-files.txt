@@ -23,7 +23,6 @@ bin/secclkd
 bin/smc_pa_ctrl
 bin/smoduled
 bin/tcmdhelp
-bin/usbd
 bin/wmdrmapp
 bin/wtg
 etc/contextawareness/algorithm.xml
@@ -111,7 +110,6 @@ lib/libcryptoki.so
 lib/libdmengine.so
 lib/libdmjavaplugin.so
 lib/libflashsnddec.so
-lib/libgb_im.so
 lib/libglslcompiler.so
 lib/libgps.so
 lib/libgtalk_jni.so
@@ -120,11 +118,6 @@ lib/libimage_jni.so
 lib/libIMGegl.so
 lib/libjanus_jni.so
 lib/libjanus.so
-lib/libjni_greekime.so
-lib/libjni_hwr.so
-lib/libjni_latin.so
-lib/libjni_pinyin.so
-lib/libjni_russianime.so
 lib/libkpt-review.so
 lib/libLCML.so
 lib/libmetainfo.so
