@@ -34,6 +34,7 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PATH}/mb508/bin/gkilogd:system/bin/gkilogd \
 	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/bin/gki_pd_notifier \
 	${DEVICE_PATH}/mb508/bin/gkisystem:system/bin/gkisystem \
+	${DEVICE_PATH}/mb508/bin/usbd:system/bin/usbd \
 	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin
 
 # copy all of our kernel modules under the "modules" directory to system/lib/modules
