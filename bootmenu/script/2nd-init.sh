@@ -64,6 +64,5 @@ echo 18 > /sys/class/leds/lcd-backlight/brightness
 
 
 ######## Let's go
-/system/bootmenu/script/adbd.sh
 /system/bootmenu/binary/2nd-init
 

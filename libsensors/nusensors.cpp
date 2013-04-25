@@ -29,7 +29,6 @@
 #include <cutils/log.h>
 
 #include "nusensors.h"
-#include "LightSensor.h"
 #include "ProximitySensor.h"
 #include "AkmSensor.h"
 #include "Kxtf9.h"
@@ -47,10 +46,9 @@ struct sensors_poll_context_t {
 
 private:
     enum {
-        light           = 0,
-        proximity       = 1,
-        akm             = 2,
-        kxtf9           = 3,
+        proximity       = 0,
+        akm             = 1,
+        kxtf9           = 2,
         numSensorDrivers,
         numFds,
     };
@@ -61,7 +59,7 @@ private:
     int mWritePipeFd;
     SensorBase* mSensors[numSensorDrivers];
 
-    int handleToDriver(int handle) const {
+    int handleToDriver(int handle) const {	
         switch (handle) {
             case ID_A:
             	return kxtf9;
@@ -71,8 +69,6 @@ private:
                 return akm;
             case ID_P:
                 return proximity;
-            case ID_L:
-                return light;
         }
         return -EINVAL;
     }
@@ -82,11 +78,6 @@ private:
 
 sensors_poll_context_t::sensors_poll_context_t()
 {
-    mSensors[light] = new LightSensor();
-    mPollFds[light].fd = mSensors[light]->getFd();
-    mPollFds[light].events = POLLIN;
-    mPollFds[light].revents = 0;
-
     mSensors[proximity] = new ProximitySensor();
     mPollFds[proximity].fd = mSensors[proximity]->getFd();
     mPollFds[proximity].events = POLLIN;
@@ -149,6 +140,7 @@ int sensors_poll_context_t::pollEvents(sensors_event_t* data, int count)
 
     do {
         // see if we have some leftover from the last poll()
+	
         for (int i=0 ; count && i<numSensorDrivers ; i++) {
             SensorBase* const sensor(mSensors[i]);
             if ((mPollFds[i].revents & POLLIN) || (sensor->hasPendingEvents())) {

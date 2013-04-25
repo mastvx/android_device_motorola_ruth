@@ -140,5 +140,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
 
 float ProximitySensor::indexToValue(size_t index) const
 {
+    LOGE("RUTH ProximitySensor: (value=%d)",
+                    (index * 6/180)-1);
     return (index * 6/180)-1;
 }

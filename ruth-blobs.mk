@@ -19,13 +19,13 @@ DEVICE_PREBUILT := ${DEVICE_PATH}/prebuilt
 #key layouts, names must fit the ones in /proc/bus/input/devices, qwerty.kl is the fallback one.
 PRODUCT_COPY_FILES += \
 	${DEVICE_PREBUILT}/bin/mot_boot_mode:system/bin/mot_boot_mode \
+	${DEVICE_PREBUILT}/xbin/strace:system/xbin/strace \
 	${DEVICE_PREBUILT}/bin/fixDelSystem.sh:system/bin/fixDelSystem.sh \
 	${DEVICE_PREBUILT}/bin/install2ndInit.sh:system/bin/install2ndInit.sh \
 	${DEVICE_PREBUILT}/etc/wifi/tiwlan.ini:etc/wifi/tiwlan.ini \
-	${DEVICE_PREBUILT}/etc/cameraCalFileDef5M.bin:system/etc/cameraCalFileDef5M.bin \
-	${DEVICE_PATH}/mb508/lib/libaudio.so:obj/lib/libaudio.so \
+	${DEVICE_PATH}/cyanogenmod4milestone/lib/libaudio.so:obj/lib/libaudio.so \
+	${DEVICE_PATH}/cyanogenmod4milestone/lib/libaudio.so:system/lib/libaudio.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
-	${DEVICE_PATH}/mb508/lib/libaudio.so:system/lib/libaudio.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libgki.so:system/lib/libgki.so \
 	${DEVICE_PATH}/mb508/lib/libgps.so:system/lib/libgps.so \
@@ -34,7 +34,8 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PATH}/mb508/bin/gkilogd:system/bin/gkilogd \
 	${DEVICE_PATH}/mb508/bin/gki_pd_notifier:system/bin/gki_pd_notifier \
 	${DEVICE_PATH}/mb508/bin/gkisystem:system/bin/gkisystem \
-	${DEVICE_PATH}/mb508/bin/usbd:system/bin/usbd \
+	${DEVICE_PATH}/mb508/app/FMRadio.apk:system/app/FMRadio.apk \
+	${DEVICE_PATH}/mb508/app/FMRadioService.apk:system/app/FMRadioService.apk \
 	${DEVICE_PATH}/mb508/etc/wifi/fw_wlan1271.bin:system/etc/wifi/fw_wlan1271.bin
 
 # copy all of our kernel modules under the "modules" directory to system/lib/modules

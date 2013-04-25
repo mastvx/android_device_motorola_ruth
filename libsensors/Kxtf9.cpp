@@ -146,6 +146,7 @@ int Kxtf9Sensor::readEvents(sensors_event_t* data, int count)
 
 void Kxtf9Sensor::processEvent(int code, int value)
 {
+    
     switch (code) {
         case EVENT_TYPE_ACCEL_X:
             mPendingEvent.acceleration.x = value * CONVERT_A_X;

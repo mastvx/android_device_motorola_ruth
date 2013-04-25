@@ -236,8 +236,10 @@ int AkmSensor::readEvents(sensors_event_t* data, int count)
 
 void AkmSensor::processEvent(int code, int value)
 {
+    LOGE("RUTH AkmSensor: (value=%d, code=%d)",
+                    value, code);
     switch (code) {
-
+	
         case EVENT_TYPE_MAGV_X:
             mPendingMask |= 1<<MagneticField;
             mPendingEvents[MagneticField].magnetic.x = value * CONVERT_M_X;

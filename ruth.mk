@@ -39,10 +39,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
 	frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# TI FM Radio
-PRODUCT_PACKAGES += \
-    FM \
-    hcitool
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -86,7 +82,7 @@ PRODUCT_PACKAGES += \
 	libaudiopolicy \
 	bootmenu \
 	mot_boot_mode.bin \
-	charge_only_mode \
+#	charge_only_mode \
 	Usb \
 	su \
 

@@ -296,7 +296,7 @@ on boot
 
 # Start services
     exec /system/bin/mot_boot_mode.bin
-    exec /init_prep_keypad.sh
+
 # Set core max size (2G)
     setrlimit 4 2147483648 2147483648
 

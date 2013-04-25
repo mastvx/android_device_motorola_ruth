@@ -76,7 +76,6 @@ PRODUCT_COPY_FILES += \
 	${bm_device}/bootmenu/2nd-init/ueventd.rc:/system/bootmenu/2nd-init/ueventd.rc \
 	${bm_device}/bootmenu/2nd-init/init.mapphone30_umts.rc:/system/bootmenu/2nd-init/init.mapphone30_umts.rc \
 	${bm_device}/bootmenu/2nd-init/sbin/ueventd:/system/bootmenu/2nd-init/sbin/ueventd \
-	${bm_device}/bootmenu/2nd-init/sbin/adbd:/system/bootmenu/2nd-init/sbin/adbd \
 	${bm_device}/bootmenu/2nd-init/init.rc:/system/bootmenu/2nd-init/init.rc \
 	${bm_device}/bootmenu/2nd-init/init:/system/bootmenu/2nd-init/init \
 	${bm_device}/bootmenu/2nd-init/init_prep_keypad.sh:/system/bootmenu/2nd-init/init_prep_keypad.sh \
