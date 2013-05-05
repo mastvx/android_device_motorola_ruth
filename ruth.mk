@@ -24,7 +24,7 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 $(call inherit-product, vendor/motorola/ruth/ruth-vendor.mk)
 
-#DEVICE_PACKAGE_OVERLAYS += device/motorola/ruth/overlay
+DEVICE_PACKAGE_OVERLAYS += device/motorola/ruth/overlay
 
 PRODUCT_COPY_FILES += \
 	frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \

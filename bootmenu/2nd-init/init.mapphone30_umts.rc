@@ -124,8 +124,7 @@ on post-fs
     mkdir /data/misc/dhcp 0777 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
     chmod 770 /data/misc/dhcp/dhcpcd-tiwlan0.pid
-    chown dhcp /data/misc/dhcp/dhcpcd-tiwlan0.pid
-    chgrp dhcp /data/misc/dhcp/dhcpcd-tiwlan0.pid
+    chown dhcp dhcp /data/misc/dhcp/dhcpcd-tiwlan0.pid
     mkdir /pds/wifi 0771 wifi wifi
     mkdir /data/comm_drv 0770 radio radio
     mkdir /data/gki 0770 radio radio
@@ -229,6 +228,11 @@ on init
     insmod /system/lib/modules/sio-iosched.ko
     insmod /system/lib/modules/ext2.ko
 
+    insmod /system/lib/modules/dm-mod.ko   
+    insmod /system/lib/modules/dm-crypt.ko              
+    insmod /system/lib/modules/twofish_common.ko
+    insmod /system/lib/modules/twofish.ko
+
 
 on early-boot
 
@@ -251,6 +255,9 @@ on boot
 
 # Overwrite what init.rc selected for the memory killer params to match above.
     write /sys/module/lowmemorykiller/parameters/minfree 3072,4608,9216,10752,12288,12288
+
+# try fix sensor
+    setprop hw.keypad 1
 
 # Define Motorola DBVC ATVC Property defaults (failsafe properties)
     setprop ro.sys.atvc_allow_netmon_usb 0

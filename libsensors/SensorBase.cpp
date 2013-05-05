@@ -51,7 +51,7 @@ SensorBase::~SensorBase() {
 int SensorBase::open_device() {
     if (dev_fd<0 && dev_name) {
         dev_fd = open(dev_name, O_RDONLY);
-        LOGE_IF(dev_fd<0, "RUTH: Couldn't open %s (%s)", dev_name, strerror(errno));
+        LOGE_IF(dev_fd<0, "Couldn't open %s (%s)", dev_name, strerror(errno));
     }
     return 0;
 }
@@ -84,7 +84,6 @@ int64_t SensorBase::getTimestamp() {
 }
 
 int SensorBase::openInput(const char* inputName) {
-    
     int fd = -1;
     const char *dirname = "/dev/input";
     char devname[PATH_MAX];
@@ -118,7 +117,6 @@ int SensorBase::openInput(const char* inputName) {
         }
     }
     closedir(dir);
-    
-    LOGE_IF(fd<0, "RUTH: couldn't find '%s' input device", inputName);
+    LOGE_IF(fd<0, "couldn't find '%s' input device", inputName);
     return fd;
 }

@@ -32,6 +32,7 @@ LOCAL_SRC_FILES := 						\
 				InputEventReader.cpp	\
 				SensorBase.cpp			\
 				LightSensor.cpp			\
+				KeypadSensor.cpp			\
 				ProximitySensor.cpp		\
 				AkmSensor.cpp \
 				Kxtf9.cpp

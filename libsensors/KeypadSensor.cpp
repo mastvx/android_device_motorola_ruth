@@ -22,51 +22,50 @@
 #include <dirent.h>
 #include <sys/select.h>
 
-#include <linux/lightsensor.h>
-
 #include <cutils/log.h>
+#include <cutils/properties.h>
 
-#include "LightSensor.h"
+#include "KeypadSensor.h"
 
 /*****************************************************************************/
 
-LightSensor::LightSensor()
-    : SensorBase(LS_DEVICE_NAME, "als"),
+KeypadSensor::KeypadSensor()
+    : SensorBase(NULL, "sholes-keypad"),
       mInputReader(4),
       mHasPendingEvent(false)
 {
     mPendingEvent.version = sizeof(sensors_event_t);
-    mPendingEvent.sensor = ID_L;
-    mPendingEvent.type = SENSOR_TYPE_LIGHT;
+    mPendingEvent.sensor = ID_K;
+    mPendingEvent.type = SENSOR_TYPE_MAGNETIC_FIELD;
     memset(mPendingEvent.data, 0, sizeof(mPendingEvent.data));
 
     setInitialState();
 }
 
-LightSensor::~LightSensor() {
+KeypadSensor::~KeypadSensor() {
 }
 
-int LightSensor::setInitialState() {
+int KeypadSensor::setInitialState() {
     struct input_absinfo absinfo;
-    if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_LIGHT), &absinfo)) {
+    if (!ioctl(data_fd, EVIOCGABS(SENSOR_TYPE_MAGNETIC_FIELD), &absinfo)) {
         mPendingEvent.light = absinfo.value;
         mHasPendingEvent = true;
     }
     return 0;
 }
 
-int LightSensor::enable(int32_t, int en) {
+int KeypadSensor::enable(int32_t, int en) {
     if(en) {
         setInitialState();
     }
     return 0;
 }
 
-bool LightSensor::hasPendingEvents() const {
+bool KeypadSensor::hasPendingEvents() const {
     return mHasPendingEvent;
 }
 
-int LightSensor::readEvents(sensors_event_t* data, int count)
+int KeypadSensor::readEvents(sensors_event_t* data, int count)
 {
     if (count < 1)
         return -EINVAL;
@@ -84,34 +83,21 @@ int LightSensor::readEvents(sensors_event_t* data, int count)
 
     int numEventReceived = 0;
     input_event const* event;
+    char tf[1];
 
     while (count && mInputReader.readEvent(&event)) {
         int type = event->type;
-        if (type == EV_LED) { // light sensor 1
-            if (event->code == EVENT_TYPE_LIGHT) {
-                mPendingEvent.light = event->value;
-            }
-        } else if (type == EV_MSC) { // light sensor 2
-            /* Light sensor 2 seems to put out lower lux values than
-             * light sensor 1, and I can't decide which is more "accurate",
-             * so for now just disabling #2
+        if (type == 5) { // Keypad sensor
+	     
+	    tf[0]=(event->value==1)?'1':'0';
+            property_set("hw.keypad", tf);
+        } 
+        /*LOGE("KeypadSensor: unknown event (type=%d, code=%d, value=%d)",
+                    type, event->code, event->value);*/
 
-            if (event->code == EVENT_TYPE_LIGHT2) {
-                mPendingEvent.light = event->value;
-            }
-
-             */
-        } else if (type == EV_SYN) {
-            mPendingEvent.timestamp = timevalToNano(event->time);
-            *data++ = mPendingEvent;
-            count--;
-            numEventReceived++;
-        } else {
-            LOGE("LightSensor: unknown event (type=%d, code=%d)",
-                    type, event->code);
-        }
         mInputReader.next();
     }
+   
 
     return numEventReceived;
 }

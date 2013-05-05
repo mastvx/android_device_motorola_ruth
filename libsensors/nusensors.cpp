@@ -33,6 +33,7 @@
 #include "ProximitySensor.h"
 #include "AkmSensor.h"
 #include "Kxtf9.h"
+#include "KeypadSensor.h"
 
 /*****************************************************************************/
 
@@ -51,6 +52,7 @@ private:
         proximity       = 1,
         akm             = 2,
         kxtf9           = 3,
+	keypad		= 4,
         numSensorDrivers,
         numFds,
     };
@@ -61,17 +63,19 @@ private:
     int mWritePipeFd;
     SensorBase* mSensors[numSensorDrivers];
 
-    int handleToDriver(int handle) const {	
+    int handleToDriver(int handle) const {
         switch (handle) {
             case ID_A:
             	return kxtf9;
+	    case ID_K:
+		return keypad;
             case ID_M:
             case ID_O:
             case ID_T:
                 return akm;
             case ID_P:
                 return proximity;
-	    case ID_L:
+            case ID_L:
                 return light;
         }
         return -EINVAL;
@@ -82,6 +86,11 @@ private:
 
 sensors_poll_context_t::sensors_poll_context_t()
 {
+    mSensors[keypad] = new KeypadSensor();
+    mPollFds[keypad].fd = mSensors[keypad]->getFd();
+    mPollFds[keypad].events = POLLIN;
+    mPollFds[keypad].revents = 0;
+
     mSensors[light] = new LightSensor();
     mPollFds[light].fd = mSensors[light]->getFd();
     mPollFds[light].events = POLLIN;
@@ -149,7 +158,6 @@ int sensors_poll_context_t::pollEvents(sensors_event_t* data, int count)
 
     do {
         // see if we have some leftover from the last poll()
-	
         for (int i=0 ; count && i<numSensorDrivers ; i++) {
             SensorBase* const sensor(mSensors[i]);
             if ((mPollFds[i].revents & POLLIN) || (sensor->hasPendingEvents())) {

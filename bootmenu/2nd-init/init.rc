@@ -33,7 +33,7 @@ loglevel 3
 # create mountpoints
     mkdir /mnt 0775 root system
     mkdir /sdcard 0000 system system
-
+    symlink /sdcard /mnt/sdcard
 
 # Create cgroup mount point for cpu accounting
     mkdir /acct

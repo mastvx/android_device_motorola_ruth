@@ -1,0 +1,16 @@
+LOCAL_PATH:= $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := GetEvent.cpp
+
+LOCAL_PRELINK_MODULE := false
+
+LOCAL_MODULE := geteventx
+
+LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
+
+LOCAL_MODULE_TAGS := debug
+
+include $(BUILD_EXECUTABLE)
+
