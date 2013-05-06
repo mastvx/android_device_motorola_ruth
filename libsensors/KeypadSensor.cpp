@@ -83,14 +83,11 @@ int KeypadSensor::readEvents(sensors_event_t* data, int count)
 
     int numEventReceived = 0;
     input_event const* event;
-    char tf[1];
 
     while (count && mInputReader.readEvent(&event)) {
         int type = event->type;
-        if (type == 5) { // Keypad sensor
-	     
-	    tf[0]=(event->value==1)?'1':'0';
-            property_set("hw.keypad", tf);
+        if (type == 5) { // Keypad sensor	     
+            property_set("hw.keypad", (event->value==1)?"1":"0");
         } 
         /*LOGE("KeypadSensor: unknown event (type=%d, code=%d, value=%d)",
                     type, event->code, event->value);*/
