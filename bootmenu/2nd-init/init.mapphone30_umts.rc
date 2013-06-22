@@ -14,8 +14,17 @@ on post-fs
     mount yaffs2 mtd@cdrom /cdrom
 	
     # remove chmod workaround once J-AT parser security changes are ready
-    chmod 666 /dev/ttyGS0
     symlink /dev/ttyGS0 /dev/acm0
+
+# usb permissions
+    chmod 0660 /dev/mtp
+    chmod 0660 /dev/ttyGS0
+    chmod 0660 /dev/usb_device_mode
+    chmod 0660 /proc/mtpctl
+    chown mot_usb mot_usb /dev/mtp
+    chown mot_usb mot_usb /dev/ttyGS0
+    chown mot_usb mot_usb /dev/usb_device_mode
+    chown mot_usb mot_usb /proc/mtpctl
 
 	exec /system/xbin/mknod /dev/dsp c 14 3
 	chmod 660 /dev/dsp
@@ -376,8 +385,9 @@ service telnet /system/xbin/telnetd
 service usbd /system/bin/usbd
     class pre-zygote_services
     user root
-    socket usbd stream 0666 root system
-   
+    group mot_usb system
+    socket usbd stream 0666 mot_usb mot_usb 
+
 service nvm-daemon /system/usr/bin/nvm_daemon
     class pre-zygote_services
     user radio

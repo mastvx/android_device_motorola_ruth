@@ -1,109 +1,86 @@
 rild.libpath=/system/lib/libril-moto-umts-1.so
 rild.libargs=-d /dev/ttyS0
 ro.sf.lcd_density=120
+
+# Default network type.
+# 3 -> GSM/WCDMA (auto mode, according to PRL)
+ro.telephony.default_network=3
+
+# The interfaces to get DNS data from when using mobile data
+# Comma-separated
+mobiledata.interfaces=rmnet0,rmnet1,rmnet2,rmnet3,rmnet4,gannet0
+
 wifi.interface = tiwlan0
-wifi.supplicant_scan_interval = 45
-ro.camsettings.premium=false
-ro.mot.mc.erasesdcard=true
-mot.proximity.delay=450
-mot.proximity.distance=60
+# Time between scans in seconds. Keep it high to minimize battery drain.
+# This only affects the case in which there are remembered access points,
+# but none are in range.
+wifi.supplicant_scan_interval = 60
+
+# Use TI hotspot code
+wifi.hotspot.ti = 1
+
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
 ro.opengles.version = 131072
-persist.mot.powerup.tone=/system/media/audio/notifications/OnTheHunt.ogg
-ro.mot.hw.HAC=1
-ro.hw.rotator=true
-ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB511/profile/MotoMB511.rdf
-ro.workaround.noautofocus=1
-ro.mot.browser.galleryview=true
-ro.mot.browser.xhtmltohtml=true
-ro.mot.FTR.NSUI=true
-ro.com.google.locationfeatures=1
-ro.telephony.call_ring.multiple=false
-ro.telephony.call_ring.delay=3000
-ro.url.safetylegal=http://www.motorola.com/staticfiles/Support/legal/?model=MB511
-ro.media.dec.jpeg.memcap=20000000
-ro.media.dec.aud.wma.enabled=1
-ro.media.dec.vid.wmv.enabled=1
-dalvik.vm.lockprof.threshold=500
-ro.kernel.android.checkjni=0
-dalvik.vm.dexopt-data-only=1
-ro.vold.umsdirtyratio=20
-ro.config.notification_sound=OnTheHunt.ogg
-ro.config.alarm_alert=Alarm_Classic.ogg
-ro.config.ringtone=Hello_Moto.mp3
-ro.default_usb_mode=0
-ro.product.multi_touch_enabled=true
-ro.product.max_num_touch=2
-ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
-ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
-ro.setupwizard.mode=DISABLED
-ro.com.motorola.smartsensor=true
-ro.media.enc.hprof.file.format=mp4
-ro.media.enc.hprof.codec.vid=h264
-ro.media.enc.hprof.codec.aud=aac
-ro.media.enc.hprof.vid.width=352
-ro.media.enc.hprof.vid.height=288
-ro.media.enc.hprof.vid.fps=30
-ro.media.enc.hprof.vid.bps=2000000
-ro.media.enc.hprof.aud.bps=96000
-ro.media.enc.hprof.aud.hz=16000
-ro.media.enc.hprof.aud.ch=1 
-ro.media.enc.hprof.duration=60
-ro.media.enc.lprof.file.format=mp4
-ro.media.enc.lprof.codec.vid=h264
-ro.media.enc.lprof.codec.aud=aac 
-ro.media.enc.lprof.vid.width=320
-ro.media.enc.lprof.vid.height=240
-ro.media.enc.lprof.vid.fps=15 
-ro.media.enc.lprof.vid.bps=131072
-ro.media.enc.lprof.aud.bps=32768
-ro.media.enc.lprof.aud.hz=16000
-ro.media.enc.lprof.aud.ch=1
-ro.media.enc.lprof.duration=30
-ro.media.enc.dprof.file.format=mp4
-ro.media.enc.dprof.codec.vid=h264
-ro.media.enc.dprof.codec.aud=aac
-ro.media.enc.dprof.vid.width=352
-ro.media.enc.dprof.vid.height=288
-ro.media.enc.dprof.vid.fps=30
-ro.media.enc.dprof.vid.bps=2000000
-ro.media.enc.dprof.aud.bps=96000
-ro.media.enc.dprof.aud.hz=16000
-ro.media.enc.dprof.aud.ch=1
-ro.media.enc.dprof.duration=60
-ro.media.enc.file.format=3gp,mp4
-ro.media.enc.vid.codec=h264,m4v,h263
-ro.media.enc.aud.codec=aac,amrwb,amrnb
-ro.media.enc.vid.h264.width=176,720
-ro.media.enc.vid.h264.height=144,480
-ro.media.enc.vid.h264.bps=64000,2000000
-ro.media.enc.vid.h264.fps=1,30
-ro.media.enc.vid.h263.width=176,320
-ro.media.enc.vid.h263.height=144,240
-ro.media.enc.vid.h263.bps=64000,2000000
-ro.media.enc.vid.h263.fps=1,30
-ro.media.enc.vid.m4v.width=176,720
-ro.media.enc.vid.m4v.height=144,480
-ro.media.enc.vid.m4v.bps=64000,2000000
-ro.media.enc.vid.m4v.fps=1,30
-ro.media.enc.aud.amrnb.bps=4750,12200
-ro.media.enc.aud.amrnb.hz=8000,8000
-ro.media.enc.aud.amrnb.ch=1,1
-ro.media.enc.aud.amrwb.bps=6600,23850
-ro.media.enc.aud.amrwb.hz=16000,16000
-ro.media.enc.aud.amrwb.ch=1,1
-ro.media.enc.aud.aac.bps=8192,131072
-ro.media.enc.aud.aac.hz=16000,16000
-ro.media.enc.aud.aac.ch=1,1
-ro.media.dec.aud.wma.enabled=1
-ro.media.dec.vid.wmv.enabled=1
-ro.media.camera.focal=2205.7,2205.7
-ro.media.camera.principal=1024.0,768.0
-ro.media.camera.skew=0.0
-ro.media.camera.distortion=0.0,0.0,0.0,0.0,0.0
-ro.mot.sec.installprompts=1
-ro.com.google.clientidbase=android-motorola
-net.bt.name=Android
-ro.config.sync=yes
-ro.com.google.clientid=android-motorola
-ro.com.google.locationfeatures=1
+
+# Enable Jpeg HW decoder for images > 300 kb
+jpeg.libskiahw.decoder.enable=1
+jpeg.libskiahw.decoder.thresh=300000
+
+# Disable Jpeg HW encoder
+jpeg.libskiahw.encoder.enable=1
+
+# This is a high density device with more memory, so larger vm heaps for it.
 dalvik.vm.heapsize=48m
+
+# Forbid format of these partitions in mount menu :
+ro.cwm.forbid_format=/misc,/boot,/recovery,/pds,/system
+
+# use 1% battery steps
+ro.product.use_charge_counter=1
+
+# use default multitouch configuration
+ro.product.multi_touch_enabled=true
+
+#number of multitouch points
+persist.sys.qtouch_num=2
+
+
+# Shutter sound enabled
+persist.sys.camera-mute=0
+
+#
+# New added	
+#
+#make hard-key backlight more smart
+ro.com.motorola.smartsensor=true
+
+#Decrease dialing out delay
+ro.telephony.call_ring.delay=700
+
+#Disable blackscreen issue after a call
+mot.proximity.delay=25
+
+# default usb mode config
+ro.default_usb_mode=2
+
+# disable Windows Media Sync Usb.apk mode
+ro.mtp_available=0
+
+# Helps scrolling responsiveness
+windowsmgr.max_events_per_sec=300
+
+# to spare some RAM
+persist.sys.purgeable_assets=1
+
+# Increase overall touch responsiveness
+mot.proximity.distance=1
+
+video.accelerate.hw=1
+
+#improve voice quality
+ro.ril.enable.amr.wideband=1
+ro.mot.hw.crystaltalk=1
+
+#voice tuning level
+ro.config.vc_call_vol_steps=15

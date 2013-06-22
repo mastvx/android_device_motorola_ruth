@@ -24,6 +24,34 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 $(call inherit-product, vendor/motorola/ruth/ruth-vendor.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.media.capture.maxres=3m \
+    ro.media.capture.fast.fps=4 \
+    ro.media.capture.slow.fps=60 \
+    ro.media.capture.classification=classE \
+    ro.media.capture.useDFR=1 \
+    ro.media.capture.maxres=3m \
+    ro.media.capture.fast.fps=4 \
+    ro.media.capture.slow.fps=60 \
+    ro.media.capture.classification=classE \
+    ro.media.capture.useDFR=1 \
+    ro.media.camera.focal=2205.7,2205.7 \
+    ro.media.camera.principal=1024.0,768.0 \
+    ro.media.camera.skew=0.0 \
+    ro.media.camera.distortion=0.0,0.0,0.0,0.0,0.0 \
+    ro.mot.hw.HAC=1 \
+    ro.hw.rotator=true \
+    ro.com.google.locationfeatures=1 \
+    ro.telephony.call_ring.multiple=false \
+    ro.telephony.call_ring.delay=3000 \
+    ro.url.safetylegal=http://www.motorola.com/staticfiles/Support/legal/?model=MB511 \
+    ro.media.dec.jpeg.memcap=20000000 \
+    ro.media.dec.aud.wma.enabled=1 \
+    ro.media.dec.vid.wmv.enabled=1 \
+    dalvik.vm.lockprof.threshold=500 \
+    ro.kernel.android.checkjni=0 \
+    dalvik.vm.dexopt-data-only=1 \
+
 DEVICE_PACKAGE_OVERLAYS += device/motorola/ruth/overlay
 
 PRODUCT_COPY_FILES += \
@@ -46,7 +74,6 @@ PRODUCT_PACKAGES += \
 	wlan_cu \
 	libtiOsLib \
 	wlan_loader \
-#	tiap_loader \
 	libCustomWifi \
 	wpa_supplicant.conf \
 	dhcpcd.conf \
@@ -54,13 +81,14 @@ PRODUCT_PACKAGES += \
 #	hostap \
 #	hostapd.conf \
 #	libhostapdcli
+#	tiap_loader \
 
 # OMX
 PRODUCT_PACKAGES += \
 	dspexec \
 	libbridge \
 	libOMX.TI.AAC.encode \
-	libOMX.TI.AAC.decode \
+	libOMX.TI.AAC.dncode \
 	libOMX.TI.AMR.decode \
 	libOMX.TI.AMR.encode \
 	libOMX.TI.WBAMR.encode \
@@ -70,7 +98,7 @@ PRODUCT_PACKAGES += \
 	libOMX.TI.Video.Decoder \
 	libOMX.TI.Video.encoder \
 	libLCML \
-	libOMX_Core
+	libOMX_Core \
 
 # Core stuff
 PRODUCT_PACKAGES += \
@@ -82,9 +110,12 @@ PRODUCT_PACKAGES += \
 	libaudiopolicy \
 	bootmenu \
 	mot_boot_mode.bin \
-#	charge_only_mode \
 	Usb \
 	su \
+        usbd \
+	e2fsck \
+	strace \
+#	charge_only_mode \
 
 # Live wallpaper packages
 PRODUCT_PACKAGES += \
@@ -102,7 +133,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += libskiahw libOMX.TI.JPEG.Encoder libOMX.TI.JPEG.decoder
 
 # hw video prepost processor (require dsp lib)
-# PRODUCT_PACKAGES += libOMX.TI.VPP
+PRODUCT_PACKAGES += libOMX.TI.VPP
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

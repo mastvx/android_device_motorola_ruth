@@ -4,9 +4,7 @@
 # Delete unwanted apps
 rm -f $REPACK/ota/system/app/RomManager.apk
 rm -f $REPACK/ota/system/app/Torch.apk
-rm -f $REPACK/ota/system/app/Androidian.apk
 rm -f $REPACK/ota/system/app/CMWallpapers.apk
-rm -f $REPACK/ota/system/app/Cyanbread.apk
 rm -f $REPACK/ota/system/app/Development.apk
 rm -f $REPACK/ota/system/app/Protips.apk
 

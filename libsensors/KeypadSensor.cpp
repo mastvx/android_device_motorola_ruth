@@ -89,8 +89,8 @@ int KeypadSensor::readEvents(sensors_event_t* data, int count)
         if (type == 5) { // Keypad sensor	     
             property_set("hw.keypad", (event->value==1)?"1":"0");
         } 
-        /*LOGE("KeypadSensor: unknown event (type=%d, code=%d, value=%d)",
-                    type, event->code, event->value);*/
+        LOGI("KeypadSensor: unknown event (type=%d, code=%d, value=%d)",
+                    type, event->code, event->value);
 
         mInputReader.next();
     }

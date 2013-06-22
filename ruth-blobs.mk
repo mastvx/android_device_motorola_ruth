@@ -19,12 +19,17 @@ DEVICE_PREBUILT := ${DEVICE_PATH}/prebuilt
 #key layouts, names must fit the ones in /proc/bus/input/devices, qwerty.kl is the fallback one.
 PRODUCT_COPY_FILES += \
 	${DEVICE_PREBUILT}/bin/mot_boot_mode:system/bin/mot_boot_mode \
-	${DEVICE_PREBUILT}/xbin/strace:system/xbin/strace \
 	${DEVICE_PREBUILT}/bin/fixDelSystem.sh:system/bin/fixDelSystem.sh \
 	${DEVICE_PREBUILT}/bin/install2ndInit.sh:system/bin/install2ndInit.sh \
-	${DEVICE_PREBUILT}/etc/wifi/tiwlan.ini:etc/wifi/tiwlan.ini \
+	${DEVICE_PREBUILT}/etc/wifi/tiwlan.ini:system/etc/wifi/tiwlan.ini \
+	${DEVICE_PREBUILT}/framework/com.motorola.android.location.jar:system/framework/com.motorola.android.location.jar \
+	${DEVICE_PATH}/cyanogenmod4milestone/app/AudioEffectSettings.odex:system/app/AudioEffectSettings.odex \
+	${DEVICE_PATH}/cyanogenmod4milestone/app/AudioEffectSettings.apk:system/app/AudioEffectSettings.apk \
 	${DEVICE_PATH}/cyanogenmod4milestone/lib/libaudio.so:obj/lib/libaudio.so \
 	${DEVICE_PATH}/cyanogenmod4milestone/lib/libaudio.so:system/lib/libaudio.so \
+	${DEVICE_PATH}/cyanogenmod4milestone/etc/permissions/motorola_platform.xml:system/etc/permissions/motorola_platform.xml \
+	${DEVICE_PATH}/cyanogenmod4milestone/etc/permissions/required_hardware.xml:system/etc/permissions/required_hardware.xml \
+	${DEVICE_PATH}/cyanogenmod4milestone/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:obj/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libcamera.so:system/lib/libcamera.so \
 	${DEVICE_PATH}/mb508/lib/libgki.so:system/lib/libgki.so \
