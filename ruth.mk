@@ -78,10 +78,10 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant.conf \
 	dhcpcd.conf \
 	iwmulticall \
-#	hostap \
-#	hostapd.conf \
-#	libhostapdcli
-#	tiap_loader \
+	hostap \
+	hostapd.conf \
+	libhostapdcli \
+	tiap_loader \
 
 # OMX
 PRODUCT_PACKAGES += \

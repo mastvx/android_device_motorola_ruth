@@ -26,18 +26,17 @@ on post-fs
     chown mot_usb mot_usb /dev/usb_device_mode
     chown mot_usb mot_usb /proc/mtpctl
 
-	exec /system/xbin/mknod /dev/dsp c 14 3
-	chmod 660 /dev/dsp
-	chown system audio /dev/dsp
-	
-	exec /system/xbin/mknod /dev/dsp1 c 14 19
-	chmod 660 /dev/dsp1
-	chown system audio /dev/dsp1
-	
-	exec /system/xbin/mknod /dev/mixer c 14 0
-	chmod 660 /dev/mixer
-	chown system audio /dev/mixer
-
+# pds permissions
+    symlink /pds /config
+    mount yaffs2 mtd@pds /pds nosuid nodev
+    chown system system /pds
+    chmod 0775 /pds
+    mkdir /pds/comm_drv
+    chown radio radio /pds/comm_drv
+    chmod 0770 /pds/comm_drv
+    mkdir /pds/public
+    chown system shell /pds/public
+    chmod 0775 /pds/public
 
 # Create mountpoints and mount tmpfs
     mkdir /pds 0775 system system
@@ -230,18 +229,39 @@ on init
     insmod /system/lib/modules/modem_pm_driver.ko
     insmod /system/lib/modules/sec.ko
 
+#custom
+    insmod /system/lib/modules/symsearch.ko
+    insmod /system/lib/modules/mmcfix.ko
+    insmod /system/lib/modules/crc16.ko
+    insmod /system/lib/modules/thumbee.ko
+
+#for cpu
     insmod /system/lib/modules/cpufreq_conservative.ko
     insmod /system/lib/modules/cpufreq_powersave.ko
+    insmod /system/lib/modules/cpufreq_interactive.ko
+    insmod /system/lib/modules/cpufreq_smartass.ko
+
+#for io
     insmod /system/lib/modules/as-iosched.ko
     insmod /system/lib/modules/deadline-iosched.ko
     insmod /system/lib/modules/sio-iosched.ko
-    insmod /system/lib/modules/ext2.ko
 
+#for fs
+    insmod /system/lib/modules/mbcache.ko
+    insmod /system/lib/modules/ext2.ko
+    insmod /system/lib/modules/jbd.ko
+    insmod /system/lib/modules/ext3.ko
+    insmod /system/lib/modules/jbd2.ko
+    insmod /system/lib/modules/ext4.ko
+
+#for app2sd
     insmod /system/lib/modules/dm-mod.ko   
     insmod /system/lib/modules/dm-crypt.ko              
     insmod /system/lib/modules/twofish_common.ko
     insmod /system/lib/modules/twofish.ko
 
+#copy hostapd conf
+	copy /system/etc/wifi/softap/hostapd.conf /data/misc/wifi/hostapd.conf
 
 on early-boot
 
@@ -516,6 +536,7 @@ service akmd2 /system/bin/akmd2
     user compass
     group compass misc input
 
+# Wifi related services
 service wlan_loader /system/bin/wlan_loader \
     -f /system/etc/wifi/fw_wlan1271.bin -i /system/etc/wifi/tiwlan.ini \
     -e /pds/wifi/nvs_map.bin
@@ -544,15 +565,13 @@ service iprenew_tiwaln0 /system/bin/dhcpcd -BK tiwlan0
     disabled
     oneshot
 
-#service dhcpcd /system/bin/dhcpcd -ABKL tiwlan0
-#    class post-zygote_services
-#    disabled
-#    oneshot
+service wlan_ap_loader /system/bin/tiap_loader -f /system/etc/wifi/fw_tiwlan_ap.bin -i /system/etc/wifi/tiwlan_ap.ini -e /pds/wifi/nvs_map.bin
+    disabled
+    oneshot
 
-#service autoip /system/bin/dhcpcd -BK tiwlan0
-#    class post-zygote_services
-#    disabled
-#    oneshot
+service hostapd /system/bin/hostap -d /data/misc/wifi/hostapd.conf
+    disabled
+    oneshot
 
 service baseimage /system/bin/dspexec -v -T /system/lib/dsp/baseimage.dof
     class media_early_init

@@ -45,7 +45,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := false
 ## fix crash on 2.6.29 kernels on ARMv7A on several devices
 ARCH_ARM_HAVE_ARMV7A_BUG := true
 
-# Wifi related defines
+#Wifi related defines
 BOARD_WLAN_DEVICE           := wl1271
 WPA_SUPPLICANT_VERSION      := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := CUSTOM
@@ -54,16 +54,10 @@ WIFI_DRIVER_MODULE_NAME     := tiwlan_drv
 WIFI_DRIVER_FW_STA_PATH     := "/system/etc/wifi/fw_wlan1271.bin"
 WIFI_FIRMWARE_LOADER        := wlan_loader
 PRODUCT_WIRELESS_TOOLS      := true
-
 BOARD_SOFTAP_DEVICE         := wl1271
 AP_CONFIG_DRIVER_WILINK     := true
 WIFI_DRIVER_FW_AP_PATH      := "/system/etc/wifi/fw_tiwlan_ap.bin"
 WPA_SUPPL_APPROX_USE_RSSI   := true
-WIFI_AP_DRIVER_MODULE_PATH  := "/system/lib/modules/tiap_drv.ko"
-WIFI_AP_DRIVER_MODULE_NAME  := tiap_drv
-WIFI_AP_FIRMWARE_LOADER     := wlan_ap_loader
-BOARD_HOSTAPD_DRIVER        := true
-BOARD_HOSTAPD_DRIVER_NAME   := wilink
 
 
 USE_CAMERA_STUB := false
@@ -85,7 +79,6 @@ HARDWARE_OMX := true
 TARGET_USE_OMAP_COMPAT  := true
 BUILD_WITH_TI_AUDIO := 1
 BUILD_PV_VIDEO_ENCODERS :=1
-
 BOARD_USE_KINETO_COMPATIBILITY := true
 BOARD_NO_RGBX_8888 := true
 
