@@ -63,7 +63,6 @@ PRODUCT_COPY_FILES += \
 	${DEVICE_PATH}/CyanogenModXT720/lib/modules/ext3.ko:system/lib/modules/ext3.ko \
 	${DEVICE_PATH}/CyanogenModXT720/lib/modules/jbd2.ko:system/lib/modules/jbd2.ko \
 	${DEVICE_PATH}/CyanogenModXT720/lib/modules/thumbee.ko:system/lib/modules/thumbee.ko \
-	${DEVICE_PATH}/CyanogenModXT720/lib/modules/tiap_drv.ko:system/lib/modules/tiap_drv.ko \
 	${DEVICE_PATH}/CyanogenModXT720/lib/dsp/jpegenc_sn.dll64P:system/lib/dsp/jpegenc_sn.dll64P \
 	${DEVICE_PATH}/CyanogenModXT720/lib/dsp/h264venc_sn.dll64P:system/lib/dsp/h264venc_sn.dll64P \
 	${DEVICE_PATH}/CyanogenModXT720/lib/dsp/nbamrenc_sn.dll64P:system/lib/dsp/nbamrenc_sn.dll64P \
